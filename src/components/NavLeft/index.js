@@ -6,6 +6,25 @@ import "./index.less";
 const SubMenu = Menu.SubMenu;
 const MenuItemGroup = Menu.ItemGroup;
 class NavLeft extends Component {
+    componentWillMount() { // 加载数据
+        const menuTreeNode = this.renderMenu(MenuConfig);
+        this.setState({
+            menuTreeNode
+        })
+    }
+    // 菜单渲染
+    renderMenu = (data) => {
+        return data.map((item) => {
+            if (item.children) {
+                return (
+                    <SubMenu title={item.title} key={item.key}>
+                        {this.renderMenu(item.children)}
+                    </SubMenu>
+                )
+            }
+            return <Menu.Item title={item.title} key={item.key} />
+        })
+    }
     render() {
         return (
             <div>
@@ -14,7 +33,7 @@ class NavLeft extends Component {
                     <h1>Imooc MS</h1>
                 </div>
                 <Menu theme="dark">
-                    <SubMenu key="sub1"
+                    {/* <SubMenu key="sub1"
                         title={
                             <span>
                                 <Icon type="mail" />
@@ -25,7 +44,8 @@ class NavLeft extends Component {
                         <Menu.Item key="2">2</Menu.Item>
                         <Menu.Item key="3">3</Menu.Item>
                         <Menu.Item key="4">4</Menu.Item>
-                    </SubMenu>
+                    </SubMenu> */}
+                    {this.state.menuTreeNode}
                 </Menu>
             </div>
         );
