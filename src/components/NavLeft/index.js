@@ -1,10 +1,9 @@
 import React, { Component } from 'react';
 import MenuConfig from "../../config/menuConfig";
-import { Menu, Icon } from 'antd';
+import { Menu } from 'antd';
 import "./index.less";
 // 3-5
 const SubMenu = Menu.SubMenu;
-const MenuItemGroup = Menu.ItemGroup;
 class NavLeft extends Component {
     componentWillMount() { // 加载数据
         const menuTreeNode = this.renderMenu(MenuConfig);
@@ -22,7 +21,7 @@ class NavLeft extends Component {
                     </SubMenu>
                 )
             }
-            return <Menu.Item title={item.title} key={item.key} />
+            return <Menu.Item title={item.title} key={item.key}>{item.title}</Menu.Item>
         })
     }
     render() {
