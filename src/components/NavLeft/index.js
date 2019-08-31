@@ -2,11 +2,13 @@ import React, { Component } from 'react';
 import MenuConfig from "../../config/menuConfig";
 import { Menu } from 'antd';
 import "./index.less";
-// 3-5
+import { NavLink } from "react-router-dom";
+// 4-2
 const SubMenu = Menu.SubMenu;
 class NavLeft extends Component {
     componentWillMount() { // 加载数据
         const menuTreeNode = this.renderMenu(MenuConfig);
+        console.log(menuTreeNode);
         this.setState({
             menuTreeNode
         })
@@ -21,7 +23,11 @@ class NavLeft extends Component {
                     </SubMenu>
                 )
             }
-            return <Menu.Item title={item.title} key={item.key}>{item.title}</Menu.Item>
+            return <Menu.Item title={item.title} key={item.key}>
+                <NavLink to={item.key}>
+                    {item.title}
+                </NavLink>
+            </Menu.Item>
         })
     }
     render() {

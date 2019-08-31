@@ -16,7 +16,8 @@ class Admin extends Component {
                     <Header></Header>
                     <Row className="content">
                         {/* todo */}
-                        <Home />
+                        {/* <Home /> */}
+                        {this.props.children}
                     </Row>
                     <Footer></Footer>
                 </Col>

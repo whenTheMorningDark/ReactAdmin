@@ -22,6 +22,17 @@
 
         .breadcrumb-title {
             text-align: center;
+
+            &::after {
+                position: absolute;
+                content: "";
+                left: 47%;
+                top: 39px;
+                border-top: 9px solid @colorM;
+                border-left: 9px solid transparent;
+                border-right: 9px solid transparent;
+                // background: red;
+            }
         }
 
         .weather {
