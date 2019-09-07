@@ -5,7 +5,10 @@ import Login from "./pages/Login";
 import Admin from "./admin";
 import Buttons from "./pages/ui/Buttons";
 import Modals from "./pages/ui/Modal";
-import Loading from "./pages/ui/Loading"
+import Loading from "./pages/ui/Loading";
+
+import Form from "./pages/form/Login";
+import Register from "./pages/form/Register";
 // import NoMatch from "./pages/NoMatch/index"
 class IRouter extends Component {
   render() {
@@ -20,6 +23,8 @@ class IRouter extends Component {
                   <Route exact path="/admin/ui/buttons" component={Buttons} />
                   <Route exact path="/admin/ui/modals" component={Modals} />
                   <Route exact path="/admin/ui/loadings" component={Loading} />
+                  <Route exact path="/admin/form/login" component={Form} />
+                  <Route exact path="/admin/form/reg" component={Register} />
                 </Admin>
               }></Route>
             </Switch>
