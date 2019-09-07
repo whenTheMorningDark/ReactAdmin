@@ -4,27 +4,30 @@ import App from "./App";
 import Login from "./pages/Login";
 import Admin from "./admin";
 import Buttons from "./pages/ui/Buttons";
-import NoMatch from "./pages/NoMatch/index"
+import Modals from "./pages/ui/Modal";
+import Loading from "./pages/ui/Loading"
+// import NoMatch from "./pages/NoMatch/index"
 class IRouter extends Component {
-    render() {
-        return (
-            <div>
-                <HashRouter>
-                    <App>
-                        <Switch>
-                            <Route exact path="/login" component={Login}></Route>
-                            <Route path="/admin" render={() =>
-                                <Admin>
-                                    <Route exact path="/admin/ui/buttons" component={Buttons} />
-                                    {/* <Route component={NoMatch} /> */}
-                                </Admin>
-                            }></Route>
-                        </Switch>
-                    </App>
-                </HashRouter>
-            </div>
-        );
-    }
+  render() {
+    return (
+      <div>
+        <HashRouter>
+          <App>
+            <Switch>
+              <Route exact path="/login" component={Login}></Route>
+              <Route path="/admin" render={() =>
+                <Admin>
+                  <Route exact path="/admin/ui/buttons" component={Buttons} />
+                  <Route exact path="/admin/ui/modals" component={Modals} />
+                  <Route exact path="/admin/ui/loadings" component={Loading} />
+                </Admin>
+              }></Route>
+            </Switch>
+          </App>
+        </HashRouter>
+      </div>
+    );
+  }
 }
 
 export default IRouter;
